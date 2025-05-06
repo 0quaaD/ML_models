@@ -11,6 +11,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder, Binarizer
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.tree import DecisionTreeClassifier
 
 
 warnings.filterwarnings('ignore')
@@ -49,13 +50,21 @@ y = binary.fit_transform(y.reshape(-1,1))
 
 train_X, test_X, train_y, test_y = train_test_split(X,y,test_size=0.2, random_state=42)
 
-model = RandomForestClassifier(n_estimators=2000,max_depth=10000000, n_jobs=12, criterion='entropy')
-model.fit(train_X, train_y)
+choice = input('Decision Tree(tree) or Random Forest(rand)? -->')
+if(choice == 'rand'):
+    model = RandomForestClassifier(n_estimators=2000,max_depth=10000000, n_jobs=12, criterion='entropy')
+    model.fit(train_X, train_y)
 
-y_pred = model.predict(test_X)
+    y_pred = model.predict(test_X)
 
-acc = np.round(100 * accuracy_score(test_y, y_pred),2)
-print(f'Accuracy: {acc}%')
+    acc = np.round(100 * accuracy_score(test_y, y_pred),2)
+    print(f'Accuracy Random Forest: {acc}%')
 
+elif(choice == 'tree'):
+    model = DecisionTreeClassifier(max_depth=10,criterion='entropy')
+    model.fit(train_X, train_y)
+    y_pred = model.predict(test_X)
+    acc = np.round(100 * accuracy_score(test_y, y_pred),2)
+    print(f'Accuracy Decision Tree: {acc}%')
 with open('wine_model.pkl','wb') as file:
     pickle.dump(model,file)
