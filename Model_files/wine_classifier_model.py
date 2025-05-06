@@ -10,7 +10,7 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder, Binarizer
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
 from sklearn.tree import DecisionTreeClassifier
 
 
@@ -34,19 +34,19 @@ def plot_ph_sulphates_quality_relation(df):
 
 corr_ = df.corr()
 #print(corr_[['quality']].sort_values(by='quality',ascending=False))
-X = df.drop(columns=['quality', 'free sulfur dioxide'],axis=1);
+X = df.drop(columns=['quality','free sulfur dioxide','density','pH','sulphates','chlorides','residual sugar','fixed acidity'],axis=1)
 
-# Binary classification: 6+ is good wine
-df['good'] = df['quality'] >= 6
+# Binary classification: 7+ is good wine
+df['good'] = df['quality'] >= 7
 y1 = df['good'].astype(int)
 
-y = df['quality'].values
+y = df['quality'].values.reshape(-1,1)
 one_hot = OneHotEncoder()
 label= LabelEncoder()
 binary = Binarizer(threshold=6.5)
 
 X = one_hot.fit_transform(X)
-y = binary.fit_transform(y.reshape(-1,1))
+y = binary.fit_transform(y)
 
 train_X, test_X, train_y, test_y = train_test_split(X,y,test_size=0.25, random_state=42)
 
@@ -56,7 +56,8 @@ if(choice == 'rand'):
     model.fit(train_X, train_y)
     imp = model.feature_importances_
     feature_name = one_hot.get_feature_names_out()
-    imp_df = pd.DataFrame({'feature':feature_name, 'importance':imp})
+    imp_df = pd.DataFrame({'feature':feature_name, 'importance':imp}).sort_values(ascending=False,by='importance')
+    print(imp_df.head(10))
     sns.barplot(data = imp_df.head(10), x='importance',y='feature')
     plt.show()
 
