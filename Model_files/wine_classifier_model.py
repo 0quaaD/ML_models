@@ -16,7 +16,7 @@ from sklearn.tree import DecisionTreeClassifier
 
 warnings.filterwarnings('ignore')
 os.chdir('/home/elnokin/Desktop/files/Data Science/Pytorch-ML-AI/Datasets')
-print(os.getcwd())
+#print(os.getcwd())
 
 df = pd.read_csv('winequality-red.csv', on_bad_lines = 'warn')
 df = df.dropna()
@@ -54,6 +54,11 @@ choice = input('Decision Tree(tree) or Random Forest(rand)? -->')
 if(choice == 'rand'):
     model = RandomForestClassifier(n_estimators=2000,max_depth=10000000, n_jobs=12, criterion='entropy')
     model.fit(train_X, train_y)
+    imp = model.feature_importances_
+    feature_name = one_hot.get_feature_names_out()
+    imp_df = pd.DataFrame({'feature':feature_name, 'importance':imp})
+    sns.barplot(data = imp_df.head(10), x='importance',y='feature')
+    plt.show()
 
     y_pred = model.predict(test_X)
 
