@@ -48,7 +48,7 @@ binary = Binarizer(threshold=6.5)
 X = one_hot.fit_transform(X)
 y = binary.fit_transform(y.reshape(-1,1))
 
-train_X, test_X, train_y, test_y = train_test_split(X,y,test_size=0.2, random_state=42)
+train_X, test_X, train_y, test_y = train_test_split(X,y,test_size=0.25, random_state=42)
 
 choice = input('Decision Tree(tree) or Random Forest(rand)? -->')
 if(choice == 'rand'):
