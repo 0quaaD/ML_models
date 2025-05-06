@@ -42,7 +42,7 @@ y1 = df['good'].astype(int)
 y = df['quality'].values
 one_hot = OneHotEncoder()
 label= LabelEncoder()
-binary = Binarizer(threshold=5.5)
+binary = Binarizer(threshold=6.5)
 
 X = one_hot.fit_transform(X)
 y = binary.fit_transform(y.reshape(-1,1))
