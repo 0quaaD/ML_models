@@ -1,1 +1,1 @@
-This is just a basic Machine Learning model that has been written in Python 3 with Numpy, Matplotlib, Scikit-learn libraries
+This repo contains the ML models and ML projects that I have created. I hope you will enjoy when you will look through the repo
