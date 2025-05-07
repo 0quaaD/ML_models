@@ -49,3 +49,31 @@ The model predicts if the wine is "Good (1)" or "Bad (0)" based on these feature
 - Hyperparameters such as `n_estimators`, `max_depth`, `min_samples_split`, and `min_samples_leaf` are tuned to improve model performance.
 3. **Model Evaluation**
 - The trained model is evaluated using various metrics:
+  - **Accuracy** : `~89%`
+  - **Precision(Good)** : `~56%`
+  - **Recall(Good)** : `~81%`
+  - **F1-Score(Good)** : `~66%`
+  - **Class Imbalance** : 347 Bad vs. 53 Good
+ 
+    
+  **Confusion Matrix** :
+  
+    ``[[313 34]
+    [10 43]]``
+
+  **Classification Report** :
+
+  `              precision    recall  f1-score   support`  
+  `           0       0.97      0.90      0.93       347`
+
+  `           1       0.56      0.81      0.66        53`  
+
+  `    accuracy                           0.89       400`
+  
+  `   macro avg       0.76      0.86      0.80       400`
+  
+  `weighted avg       0.91      0.89      0.90       400`
+
+## Conclusion  
+
+This project demonstrates the use of machine learning to predict wine quality based on its chemical properties. The model is deployed in a user-friendly web interface, making it easy for users to input their wine data and get predictions. The Random Forest Classifier achieved a solid accuracy of ~89%, making it an effective tool for wine quality prediction.
