@@ -19,7 +19,7 @@ The classification model is deployed on a web interface using Streamlit, allowin
 - **Pickle** : Library used to serialize the trained model and scaler for later use in the Streamlit application.
 
 ## The Dataset  
-The dataset used in this project is the **Wine Quality Dataset** from the UCI Machine Learning Repository. 
+The [dataset](dataset/winequality-red.csv) used in this project is the **Wine Quality Dataset** from the UCI Machine Learning Repository. 
 It contains information about various chemical properties of red wines, and the goal is to predict the quality of the wine.
 
 ### Dataset Features
