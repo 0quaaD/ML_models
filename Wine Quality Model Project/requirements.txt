@@ -1,0 +1,6 @@
+The Python libraries that has been used for this project:
+--> Streamlit (to visualize the model and project on webpage)
+--> Scikit-learn (sklearn)
+--> Pandas (to read and transform data for training)
+--> Numpy 
+--> Pickle (to load and save model and other important stuff)
