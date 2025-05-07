@@ -61,18 +61,17 @@ The model predicts if the wine is "Good (1)" or "Bad (0)" based on these feature
     ``[[313 34]
     [10 43]]``
 
-  **Classification Report** :
+# Classification Report
 
-  `              precision    recall  f1-score   support`  
-  `           0       0.97      0.90      0.93       347`
+| Class | Precision | Recall | F1-Score | Support |
+|-------|-----------|--------|----------|--------:|
+| 0     |   0.97    |  0.90  |   0.93   |     347 |
+| 1     |   0.56    |  0.81  |   0.66   |      53 |
+| **Accuracy** |           |        |   **0.89**   |     **400** |
+| **Macro Avg** |   0.76    |  0.86  |   0.80   |     400 |
+| **Weighted Avg** |   0.91    |  0.89  |   0.90   |     400 |
 
-  `           1       0.56      0.81      0.66        53`  
 
-  `    accuracy                           0.89       400`
-  
-  `   macro avg       0.76      0.86      0.80       400`
-  
-  `weighted avg       0.91      0.89      0.90       400`
 
 ## Conclusion  
 
