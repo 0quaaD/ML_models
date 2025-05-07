@@ -1,4 +1,4 @@
-# Wine Quality Classifier using Machine Learning  
+# 🍷Wine Quality Classifier using Machine Learning  
 ## Project Overview
 This project aims to classify red wine quality as Good (1) or Bad (0) based on various chemical properties of the wine. 
 We use a Random Forest Classifier to predict the quality based on 11 features extracted from the red wine dataset. 
@@ -6,23 +6,23 @@ The classification model is deployed on a web interface using Streamlit, allowin
 
 ## Project Objectives
 
-- **Data preprocessing** : Clean the data by handling missing values and scaling the features.  
-- **Model Training** : Train a machine learning model (Random Forest Classifier) to predict wine quality as good or bad.
-- **Model Evaluation** : Evaluate the model using metrics like accuracy, confusion matrix, precision, recall, and F1-score.
-- **Web Application** : Create a user-friendly web interface to input wine features and predict the quality using the trained model.
+- **📊 Data preprocessing** : Clean the data by handling missing values and scaling the features.  
+- **✴️ Model Training** : Train a machine learning model (Random Forest Classifier) to predict wine quality as good or bad.
+- **📈 Model Evaluation** : Evaluate the model using metrics like accuracy, confusion matrix, precision, recall, and F1-score.
+- **🌐 Web Application** : Create a user-friendly web interface to input wine features and predict the quality using the trained model.
 
-## Used technologies  
+## 👨‍💻 Used softwares and languages  
 - **Python** : The primary programming language for model training, evaluation, and application development.
 - **Scikit-Learn** : Machine learning library used for model training and evaluation.
 - **Streamlit** : Python library used to build the interactive web application.
 - **Pandas and NumPy** : Libraries for data manipulation and numerical computations.
 - **Pickle** : Library used to serialize the trained model and scaler for later use in the Streamlit application.
 
-## The Dataset  
+## 📊 The Dataset  
 The [dataset](dataset/winequality-red.csv) used in this project is the **Wine Quality Dataset** from the UCI Machine Learning Repository. 
 It contains information about various chemical properties of red wines, and the goal is to predict the quality of the wine.
 
-### Dataset Features
+### 📋 Dataset Features
 1. Fixed acidity
 2. Volatile acidity
 3. Citric acid
@@ -39,15 +39,15 @@ The target variable is **'quality'**, which is a numerical rating between 0 and 
 The model predicts if the wine is "Good (1)" or "Bad (0)" based on these features.
 
 ## Project Steps
-1. **Data Preprocessing**
+1. **📊 Data Preprocessing**
 - The dataset is read and missing values are removed using `dropna()`.
 - The features are scaled using `StandardScaler` to normalize the data and ensure that all features contribute equally to the model.
 -  The target variable (`quality`) is binarized into `Good` or `Bad` wine using a threshold of `6.5`, where wines with a quality rating above 6.5 are considered `Good (1)`, and below or equal to 6.5 are considered `Bad (0)`
-2. **Model Training**
+2. **✴️ Model Training**
 - The dataset is split into training and testing sets using `train_test_split`.
 - A `Random Forest Classifier` is trained on the data. Random forests are an ensemble learning method that creates multiple decision trees and combines their results for more accurate predictions.
 - Hyperparameters such as `n_estimators`, `max_depth`, `min_samples_split`, and `min_samples_leaf` are tuned to improve model performance.
-3. **Model Evaluation**
+3. **📈 Model Evaluation**
 - The trained model is evaluated using various metrics:
   - **Accuracy** : `~89%`
   - **Precision(Good)** : `~56%`
@@ -73,6 +73,6 @@ The model predicts if the wine is "Good (1)" or "Bad (0)" based on these feature
 
 
 
-## Conclusion  
+## 🏁 Conclusion  
 
 This project demonstrates the use of machine learning to predict wine quality based on its chemical properties. The model is deployed in a user-friendly web interface, making it easy for users to input their wine data and get predictions. The Random Forest Classifier achieved a solid accuracy of ~89%, making it an effective tool for wine quality prediction.
