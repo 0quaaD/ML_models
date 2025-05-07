@@ -6,6 +6,7 @@ import warnings
 import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
+import streamlit as st
 
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
@@ -50,7 +51,7 @@ y = binary.fit_transform(y)
 
 train_X, test_X, train_y, test_y = train_test_split(X,y,test_size=0.25, random_state=42)
 
-choice = input('Decision Tree(tree) or Random Forest(rand)? -->')
+choice = input('Decision Tree(tree) or Random Forest(rand)? --> ')
 if(choice == 'rand'):
     model = RandomForestClassifier(n_estimators=2000,max_depth=10000000, n_jobs=12, criterion='entropy')
     model.fit(train_X, train_y)
